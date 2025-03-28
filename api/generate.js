@@ -4,9 +4,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method Not Allowed" });
   }
-
-  const { prompt } = req.body;
-
+  const prompt = req.body?.input?.prompt;
   if (!prompt) {
     return res.status(400).json({ error: "Missing prompt in request body" });
   }
